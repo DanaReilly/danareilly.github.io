@@ -10,7 +10,14 @@
 /* –––––––– boxes –––––––– */
 
 .box {
-  width: 50%;
+  width: 40%;
+  display:inline;
+  float:left;
+  padding: 0 5%;
+}
+
+.photo {
+  max-height:500px;
 }
 
 .social {
