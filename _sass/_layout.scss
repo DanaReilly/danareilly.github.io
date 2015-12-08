@@ -1,0 +1,196 @@
+/* –––––––– SITE CONTENT –––––––– */
+
+.site-content {
+  position:relative;
+  top:102px;
+}
+
+/* GRID */
+
+/* –––––––– grid –––––––– */
+
+.grid {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.column, columns {
+  width: 23%;
+  display:inline;
+  float:left;
+  margin:0 10px;
+  box-sizing: border-box;
+}
+
+/* –––––––– Clearing –––––––– */
+
+/* Self Clearing Goodness */
+.grid:after,
+.row:after, {
+  content: "";
+  display: table;
+  clear: both; }
+
+/* ––––––– grid-item ––––––– */
+
+.grid-item {
+  display:inline;
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+  }
+
+.grid-item--height1 { height: 200px; }
+.grid-item--height2 { height: 350px; }
+
+/* ––––––– Art ––––––– */
+
+.img1 {
+  background-image:url("/images/Ben_Weinstock.jpg");
+  background-position: right top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.img2 {
+  background-image:url("/images/Self_Portrait_III.jpg");
+  background-position: right top;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+
+}
+
+.img3 {
+  background-image:url("/images/audrey_weeping_woman.jpg");
+  background-position: right top;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+
+}
+
+.img4 {
+  background-image:url("/images/Self_Portrait_II.jpg");
+  background-position: right top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+}
+
+.img5 {
+  background-image:url("/images/Smoking_Paintbrush.jpg");
+  background-position: right top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+}
+
+.img6 {
+  background-image:url("/images/MrHiggins.jpg");
+  background-position: right top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+}
+
+.img7 {
+  background-image:url("/images/Peter.jpg");
+  background-position: right top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.img8 {
+  background-image:url("/images/Ashton.jpg");
+  background-position: right;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+
+
+
+/* ––––––– Clips ––––––– */
+
+.clips {
+  padding: 5% 5%;
+}
+
+.clip1, .clip7 {
+  background-color: #6796CC;
+}
+
+.clip2 {
+  background-color: #FF4231;
+}
+
+.clip3, .clip6 {
+  background-color: #1961B2;
+}
+
+.clip4 {
+  background-color: #E4FF4A;
+}
+
+.clip5, .clip8 {
+  background-color: #B21E10
+}
+
+/* ----------- First BreakPoint ----------- */
+
+
+@media only screen and (max-width : 1190px) {
+  /* Styles for small screen */
+  .column, columns {
+  width: 33%;
+  display:inline;
+  float:left;
+  margin:0 10px;
+  box-sizing: border-box;
+  }
+
+  .img2 {
+    background-size: 100% auto;
+  }
+
+  .img3 {
+    background-size: 100% auto;
+  }
+
+  .img5 {
+    background-size: 100% auto;
+  }
+}
+
+
+/* ----------- iPhone 5 and 5S ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (max-width: 849px) {
+  .column, columns {
+    width: 100%;
+    display:inline;
+    float:left;
+    margin:0 10px;
+    box-sizing: border-box;
+  }
+
+  .grid-item--height1 { height: 600px; }
+  .grid-item--height2 { height: 600px; }
+
+  .img2 {
+    background-size: 100% auto;
+  }
+
+  .img3 {
+    background-size: 100% auto;
+  }
+
+  .img5 {
+    background-position: right top;
+    background-size: auto 100%;
+  }
+}
