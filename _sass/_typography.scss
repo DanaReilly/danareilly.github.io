@@ -171,7 +171,7 @@ blockquote {
 }
 
 a {
-  color: #8d8d8d;
+  color: #000000;
   text-decoration: none;
   -webkit-transition: .07s ease-in;
   transition: .07s ease-in;
@@ -206,5 +206,20 @@ small {
 
 big {
   font-size: 125%;
+}
+
+.fa-lg {
+    font-size: 1.33333333em;
+    line-height: .75em;
+    vertical-align: -15%;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
