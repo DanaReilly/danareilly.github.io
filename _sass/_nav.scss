@@ -1,7 +1,6 @@
 .site-header {
-  background: #ffffff;
   z-index: 100;
-  color: #000000;
+  background-color: rgba(255, 255, 255, 0.8);
   width:100%;
   position:fixed;
 }
@@ -9,7 +8,7 @@
 .site-title {
   p {
     color: #000000;
-    line-height: 0em;
+    line-height: 1.5em;
     padding: 0px 0px 10px 10px;
     font-weight: 100;
   }
@@ -48,11 +47,12 @@ nav {
     -webkit-padding-start: 40px;
   }
 
-  a {
+  a, a:link {
     cursor: pointer;
+    color:#000000;
   }
 
-  a:hover {
+  a:hover, a:visited {
     text-decoration: none;
     border-top: 5px solid black;
   }
