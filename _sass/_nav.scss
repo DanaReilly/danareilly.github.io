@@ -59,12 +59,95 @@ nav {
   }
 
   li {
-    position: relative;
     display: list-item;
     float:left;
     padding: 0 20px;
     font-size: 18px;
-    text-decoration:none;
     color:#000000;
   }
+}
+
+
+/* ------ iPHONE ------- */
+
+@media only screen and (max-width: 590px) {
+
+.site-header {
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 1.0);
+  width:100%;
+}
+
+.site-title {
+  position: relative;
+  width:100%;
+  left:0px;
+}
+
+.site-title {
+  p {
+    color: #000000;
+    line-height: 1.5em;
+    padding: 0px 0px 0px 0px;
+    font-weight: 100;
+    text-align:center;
+  }
+
+  h1 {
+    color: #000000;
+    line-height: 1em;
+    padding: 10px 0px 0px 0px;
+    text-align:center;
+  }
+}
+
+
+.site-navigation {
+  position:relative;
+  background-color: rgba(255, 255, 255, 1.0);
+  width:100%;
+  right:0px;
+  left:0px;
+}
+
+nav {
+  ul {
+    display:block;
+    width:100%;
+    position:relative;
+    background-color: rgba(255, 255, 255, 1.0);
+    text-align:center;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+  }
+
+  a, a:link {
+    cursor: pointer;
+    color:#000000;
+  }
+
+  a:hover, a:visited {
+    text-decoration: none;
+    border: none;
+  }
+
+  li {
+    display: block;
+    text-align:center;
+    position:relative;
+    float: none;
+    padding: 5px 0px;
+    font-size: 18px;
+    color:#000000;
+  }
+
+  li:hover {
+  background-color:#FFFF00;
+  cursor: pointer;
+  }
+}
+
 }
