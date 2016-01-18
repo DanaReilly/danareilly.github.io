@@ -3,9 +3,13 @@
 # only Main files contain this front matter, not partials.
 ---
 
+@import "reset";
+@import "../font-awesome/scss/font-awesome";
+@import "fonts";
 
-@import "layout";
+@import "variables";
 @import "typography";
+@import "layout";
 @import "nav";
 
 
