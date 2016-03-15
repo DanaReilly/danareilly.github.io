@@ -187,23 +187,44 @@ a:hover .fa {
 }
 
 .clip1, .clip7 {
-  background-color: #6796CC;
+  border: 5px solid transparent;
+  -moz-border-image: -moz-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+  -webkit-border-image: -webkit-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+  border-image: linear-gradient(to bottom right, #3acfd5 0%, #3a4ed5 100%);
+  border-image-slice: 1;
+
 }
 
 .clip2 {
-  background-color: #FF4231;
+    border: 5px solid transparent;
+    -moz-border-image: -moz-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    border-image: linear-gradient(to bottom right, #3acfd5 0%, #3a4ed5 100%);
+    border-image-slice: 1;
 }
 
 .clip3, .clip6 {
-  background-color: #1961B2;
+  border: 5px solid transparent;
+    -moz-border-image: -moz-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    border-image: linear-gradient(to bottom right, #3acfd5 0%, #3a4ed5 100%);
+    border-image-slice: 1;
 }
 
 .clip4 {
-  background-color: #E4FF4A;
+  border: 5px solid transparent;
+    -moz-border-image: -moz-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    border-image: linear-gradient(to bottom right, #3acfd5 0%, #3a4ed5 100%);
+    border-image-slice: 1;
 }
 
 .clip5, .clip8 {
-  background-color: #B21E10
+  border: 5px solid transparent;
+    -moz-border-image: -moz-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, #3acfd5 0%, #3a4ed5 100%);
+    border-image: linear-gradient(to bottom right, #3acfd5 0%, #3a4ed5 100%);
+    border-image-slice: 1;
 }
 
 /* ----------- First BreakPoint ----------- */

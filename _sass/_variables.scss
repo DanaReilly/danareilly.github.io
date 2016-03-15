@@ -1,55 +1,47 @@
-/* Avenir-Black */
+//Fonts
 
 $sans-serif-black: 'Avenir-Black';
 $sans-serif-book: 'Avenir-Book';
+$sans-serif-light: 'Avenir-Light';
+$sans-serif-medium: 'Avenir-Medium';
 
-// /* Avenir-BookOblique */
-// @font-face {
-//   font-family: 'Avenir-BookOblique';
-//   src: url("../fonts/Avenir/Avenir-BookOblique.woff") format('woff'),
-//        url("../fonts/Avenir/Avenir-BookOblique.ttf") format('truetype');
-// }
 
-// /* Avenir-Heavy */
-// @font-face {
-//   font-family: 'Avenir-Heavy';
-//   src: url("../fonts/Avenir/Avenir-Heavy.woff") format('woff'),
-//        url("../fonts/Avenir/Avenir-Heavy.ttf") format('truetype');
-// }
+//Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 500;
 
-// /* Avenir-Light */
-// @font-face {
-//   font-family: 'Avenir-Light';
-//   src: url("../fonts/Avenir/Avenir-Light.woff") format('woff'),
-//        url("../fonts/Avenir/Avenir-Light.ttf") format('truetype');
-// }
+//Font Sizes
+$font-size-small: 0.5em;
+$font-size-regular: 1em;
+$font-size-large: 1.5em;
+$font-size-x-large: 2em;
+$font-size-xx-large: 2.5em;
+$font-size-xxx-large: 3em;
 
-// /* Avenir-LightOblique */
-// @font-face {
-//   font-family: 'Avenir-LightOblique';
-//   src: url("../fonts/Avenir/Avenir-LightOblique.woff") format('woff'),
-//        url("../fonts/Avenir/Avenir-LightOblique.ttf") format('truetype');
-// }
-
-// /* Avenir-Medium */
-// @font-face {
-//   font-family: 'Avenir-Medium';
-//   src: url("../fonts/Avenir/Avenir-Medium.woff") format('woff'),
-//        url("../fonts/Avenir/Avenir-Medium.ttf") format('truetype');
-// }
-
+//Colors
+$cyan: #00FFFF;
+$aquamarine: #7FFFD4;
+$turquoise:#40E0D0;
+$medturquoise:#48D1CC;
+$darkturquoise:#00CED1;
+$royalblue: #4169E1;
+$slateblue: #6A5ACD;
+$blue:#0000FF;
+$mediumblue:#0000CD;
+$indigo: #4B0032;
+$navy:#000080;
 
 //Breakpoints
 
-//$bp-sm
-//$bp-md
-//$bp-lg
+$bp-sm-min: 768px;
+$bp-xs-max: ($bp-sm-min - 1);
+$bp-md-min: 992px;
+$bp-sm-max: ($bp-md-min - 1);
+$bp-lg-min: 1200px;
+$bp-md-max: ($bp-lg-min - 1);
 
-//Font Weights
 
-//Font Sizes
-
-//Colors
 
 
 
