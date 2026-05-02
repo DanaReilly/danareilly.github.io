@@ -1,70 +1,277 @@
----
-layout: master
-title: writer, producer, technologist
----
-<div id="content" class="site-content">
-  <div class="grid">
-    <div class="row">
-      <div class="column">
-        <div class="grid-item grid-item--height1 clip1">
-          <div class="clips">
-            <h3>The Huffington Post</h3>
-            <p class="clip-title"><a href="http://www.huffingtonpost.com/dana-reilly/is-this-thing-on_b_2784304.html" target="_blank">Is This Thing On?</a></p>
-          </div>
-        </div>
-        <div class="grid-item grid-item--height2 clip2">
-          <div class="clips">
-            <h3>The Huffington Post</h3>
-            <p class="clip-title"><a href="http://www.huffingtonpost.com/dana-reilly/are-you-there-netizens-it_b_2132196.html" target="_blank">Are You There Netizens?</a></p>
-            <p class="clip-description">I subscribe to an email lottery called The Listserve, in which one person is selected each day to send out an email to the list, which currently includes over 21,000 subscribers from 95 countries.</p>
-          </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dana Reilly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: 'Nunito Sans', Avenir, 'Avenir Next', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 7rem;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  transition: border-color 0.15s;
+}
+a:hover { border-color: #000; }
+
+h1 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin-bottom: 1rem;
+}
+
+.bio {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.75;
+  max-width: 440px;
+  margin-bottom: 3.5rem;
+}
+
+.films-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #e8e8e8;
+  margin-bottom: 1px;
+}
+
+.tile {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  cursor: pointer;
+  background: #f0f0f0;
+}
+
+.tile-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.35s;
+}
+
+.tile:hover .tile-placeholder,
+.tile.active .tile-placeholder { filter: brightness(0.72); }
+
+.tile-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.tile-info {
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s, transform 0.25s;
+  color: #fff;
+}
+
+.tile:hover .tile-info,
+.tile.active .tile-info { opacity: 1; transform: translateY(0); }
+
+.tile-title { font-weight: 400; font-size: 0.85rem; line-height: 1.3; }
+.tile-year { font-size: 0.7rem; opacity: 0.75; margin-top: 2px; }
+
+/* panel */
+.film-panel {
+  display: none;
+  padding: 2rem 0 1.5rem;
+  border-top: 1px solid #e8e8e8;
+  animation: fadeIn 0.2s ease;
+}
+
+.film-panel.open { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-close {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #aaa;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-weight: 300;
+  padding: 0;
+}
+.panel-close:hover { color: #000; }
+
+.panel-title { font-size: 1.1rem; font-weight: 400; margin-bottom: 0.25rem; }
+.panel-year { font-size: 0.8rem; color: #aaa; margin-bottom: 1.25rem; }
+.panel-desc { font-size: 0.88rem; color: #555; line-height: 1.8; max-width: 520px; margin-bottom: 1.25rem; }
+.panel-awards { font-size: 0.75rem; color: #999; line-height: 2; max-width: 520px; margin-bottom: 1.5rem; }
+
+.panel-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.panel-links a {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+.panel-links a:hover { border-color: #aaa; color: #aaa; }
+
+/* contact */
+.contact { margin-top: 4rem; }
+.contact a { font-size: 0.88rem; }
+
+@media (max-width: 600px) {
+  .films-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<h1>Dana Reilly</h1>
+
+<p class="bio">I am a documentary filmmaker based in New York. I make documentaries about women building confidence inside systems designed to diminish them — exploring the tension between existing within and resisting patriarchal norms.</p>
+
+<div class="films-grid">
+  <div class="tile" data-film="obe">
+    <img class="tile-placeholder" src="images/OBE_2.jpg" alt="Our Body Electric">
+    <div class="tile-overlay">
+      <div class="tile-info">
+        <div class="tile-title">Our Body Electric</div>
+        <div class="tile-year">2024</div>
       </div>
-      <div class="column">
-        <div class="grid-item grid-item--height2 clip3">
-          <div class="clips">
-            <h3>VanWinkles</h3>
-            <p class="clip-title"><a href="http://vanwinkles.com/at-consciousness-hacking-nyc-s-meetup-tips-for-better-dreaming" target="_blank">At Consciousness Hacking NYC’s Meetup, Tips for Better Dreaming</a></p>
-            <p class="clip-description">On Monday, 60 psychonauts, somnonauts and lucid dreamers met to talk about hacking their sleeping selves.</p>
-          </div>
-        </div>
-        <div class="grid-item grid-item--height1 clip4">
-          <div class="clips">
-            <h3>The Huffington Post</h3>
-            <p class="clip-title"><a href="http://www.huffingtonpost.com/dana-reilly/the-joy-of-cooking_b_2648420.html" target="_blank">The Joy of Cooking</a></p>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="tile" data-film="fd">
+    <img class="tile-placeholder" src="images/FD_Still_2.png" alt="Favorite Daughter">
+    <div class="tile-overlay">
+      <div class="tile-info">
+        <div class="tile-title">Favorite Daughter</div>
+        <div class="tile-year">2022</div>
       </div>
-      <div class="column">
-        <div class="grid-item grid-item--height1 clip5">
-          <div class="clips">
-            <h3>Rhode Island Public Radio</h3>
-            <p class="clip-title"><a href="http://ripr.org/post/metlon-stays-cutting-edge-unique-textiles" target="_blank">Made in RI: Metlon Stays on the Cutting Edge</a></p>
-          </div>
-        </div>
-        <div class="grid-item grid-item--height2 clip6">
-          <div class="clips">
-            <h3>Providence Business News</h3>
-            <p class="clip-title"><a href="http://pbn.com/detail.html?sub_id=69524" target="_blank">App for all that...Sports, that is</a></p>
-            <p class="clip-description">In one of two offices overlooking North Main Street in Providence, a team of five software developers, each glued to his open Macbook Pro, is working toward the release of the Fanium’s first mobile app, which aggregates Twitter feeds to provide real-time commentary during live sports games.</p>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="tile" data-film="mdt">
+    <img class="tile-placeholder" src="images/MDT_Still_1.png" alt="Ms. Diva Trucker">
+    <div class="tile-overlay">
+      <div class="tile-info">
+        <div class="tile-title">Ms. Diva Trucker</div>
+        <div class="tile-year">2021</div>
       </div>
-      <div class="column">
-        <div class="grid-item grid-item--height2 clip7">
-          <div class="clips">
-            <h3>The College Hill Independent</h3>
-            <p class="clip-title"><a href="http://students.brown.edu/College_Hill_Independent/?p=6569" target="_blank">Brazen in the Sun</a></p>
-            <p class="clip-description">This month the Rhode Island General Assembly is hearing a bill that would ban the use of indoor tanning facilities by minors without a doctor’s prescription.</p>
-          </div>
-        </div>
-        <div class="grid-item grid-item--height1 clip8">
-          <div class="clips">
-            <h3>The Brown Daily Herald</h3>
-            <p class="clip-title"><a href="http://www.browndailyherald.com/2012/03/02/occupiers-protest-student-burdens/" target="_blank">Occupiers Protest Student Burdens</a></p>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="tile" data-film="aal">
+    <img class="tile-placeholder" src="images/AAL_Still_2.jpg" alt="At Arm's Length">
+    <div class="tile-overlay">
+      <div class="tile-info">
+        <div class="tile-title">At Arm's Length</div>
+        <div class="tile-year">2019</div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="film-panel" id="panel-obe">
+  <button class="panel-close" onclick="closePanel('obe')">← close</button>
+  <div class="panel-title">Our Body Electric</div>
+  <div class="panel-year">2026 · Feature Documentary · Director / Co-Producer</div>
+  <div class="panel-desc">OUR BODY ELECTRIC follows three elite women bodybuilders competing to be Ms. Olympia, the most coveted muscle show title. Offering a behind-the-scenes look at women sculpting themselves into anatomical works of art, this feature-length film is both a testament to the power of athletics and an intimate portrait of women defying societal expectations.</div>
+  <div class="panel-awards">Executive Producer: Caryn Capotosto · DP: Liz Charky, Emily Grooms · Currently seeking distribution</div>
+  <div class="panel-links">
+    <a href="https://vimeo.com/1154056716?fl=pl&fe=ti" target="_blank">trailer ↗</a>
+  </div>
+</div>
+
+<div class="film-panel" id="panel-fd">
+  <button class="panel-close" onclick="closePanel('fd')">← close</button>
+  <div class="panel-title">Favorite Daughter</div>
+  <div class="panel-year">2022 · Documentary Short · Director / Producer / Co-Editor</div>
+  <div class="panel-desc">An intimate portrait of my grandmother Sylvia Weinstock and my mother Janet Isa, sheltering in place together in a lower Manhattan apartment during the COVID-19 pandemic.</div>
+  <div class="panel-awards">Telluride Film Festival · DOC NYC · Seattle IFF · Dok Leipzig · DocAviv · MTV Documentary Films · Streaming on Paramount+ · Executive Producer: Sheila Nevins · BAFTA Student Award shortlist · Student Academy Award shortlist</div>
+  <div class="panel-links">
+    <a href="https://www.paramountplus.com/movies/video/0Jkorx20KMuBA5vh5W8s6rxdmzPwujLp/"" target="_blank">watch on Paramount+ ↗</a>
+    <a href="https://vimeo.com/711406850" target="_blank">trailer ↗</a>
+  </div>
+</div>
+
+<div class="film-panel" id="panel-mdt">
+  <button class="panel-close" onclick="closePanel('mdt')">← close</button>
+  <div class="panel-title">Ms. Diva Trucker</div>
+  <div class="panel-year">2021 · Documentary Short · Director / Editor</div>
+  <div class="panel-desc">A long-haul trucker builds community and a new life on YouTube as @MsDivaTrucker43.</div>
+  <div class="panel-awards">Big Sky Documentary Festival · PBS Short Film Festival — Jury Prize · NoBudge · Athena Film Festival · Cinequest · Hot Springs Documentary · Rhode Island IFF · Magnolia IFF — Best Homegrown Film</div>
+  <div class="panel-links">
+    <a href="https://www.nobudge.com/videos/ms-diva-trucker" target="_blank">watch on NoBudge ↗</a>
+  </div>
+</div>
+
+<div class="film-panel" id="panel-aal">
+  <button class="panel-close" onclick="closePanel('aal')">← close</button>
+  <div class="panel-title">At Arm's Length</div>
+  <div class="panel-year">2019 · Documentary Short · Director / Producer</div>
+  <div class="panel-desc">Two journalists who covered a mass shooting in Sutherland Springs, TX attempt to reconcile their empathic relationships to the survivors with the distance required to continue reporting.</div>
+  <div class="panel-awards">Thin Line Festival — Best Student Film · Fastnet Film Festival — Best Documentary Short · KERA-TV broadcast · Fort Worth Indie Film Festival — Best Domestic Doc Short</div>
+  <div class="panel-links">
+    <a href="https://vimeo.com/306934013" target="_blank">watch ↗</a>
+  </div>
+</div>
+
+<div class="contact">
+  <a href="mailto:dreilly@mostlytruefilms.com">dreilly@mostlytruefilms.com</a>
+</div>
+
+<script>
+  const tiles = document.querySelectorAll('.tile');
+
+  tiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const id = tile.dataset.film;
+      const panel = document.getElementById('panel-' + id);
+      const isOpen = panel.classList.contains('open');
+
+      document.querySelectorAll('.film-panel').forEach(p => p.classList.remove('open'));
+      tiles.forEach(t => t.classList.remove('active'));
+
+      if (!isOpen) {
+        panel.classList.add('open');
+        tile.classList.add('active');
+        setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+      }
+    });
+  });
+
+  function closePanel(id) {
+    document.getElementById('panel-' + id).classList.remove('open');
+    document.querySelector(`[data-film="${id}"]`).classList.remove('active');
+  }
+</script>
+
+</body>
+</html>
