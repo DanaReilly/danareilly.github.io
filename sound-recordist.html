@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dana Reilly — Production Sound Recordist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --paper: #fafafa;
+    --hint: #e8557a;
+    --hint-light: #f2a0b5;
+    --mid: #777777;
+    --light: #eeeeee;
+    --rule: rgba(0,0,0,0.1);
+    --bg-section: #f2f2f2;
+    --rainbow: linear-gradient(90deg, #0d9488, #3b82f6);
+  }
+
+  .rainbow-text {
+    background: var(--rainbow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── WAVEFORM HEADER ─────────────────────────────────────────── */
+  header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    overflow: hidden;
+    background: #111111;
+  }
+
+
+  .nav-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    z-index: 100;
+    mix-blend-mode: normal;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+  }
+
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; }
+
+  .nav-links a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .hero-eyebrow {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  h1 em {
+    font-style: italic;
+    background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-sub {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.06em;
+    margin-top: 1.5rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-divider {
+    width: 120px;
+    height: 3px;
+    background: var(--rainbow);
+    margin: 2.5rem auto;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-contact {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.8s 0.35s ease both;
+  }
+
+  .hero-contact a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .hero-contact a:hover { color: var(--hint-light); }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeUp 1s 0.6s ease both;
+  }
+
+  .scroll-indicator span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: rgba(245,242,237,0.3);
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  /* ── SECTIONS ────────────────────────────────────────────────── */
+  section {
+    padding: 7rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--ink);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--rainbow);
+    margin-top: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+
+  .section-title em { font-style: italic; color: var(--mid); }
+
+  hr.section-rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin-bottom: 2rem;
+  }
+
+  /* ── INTRO STRIP ─────────────────────────────────────────────── */
+  .intro-strip {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .intro-strip p {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(245,242,237,0.8);
+  }
+
+  .intro-strip p strong {
+    color: var(--gold);
+    font-weight: 400;
+  }
+
+  /* ── FILM CREDITS ────────────────────────────────────────────── */
+  .films-grid {
+    display: grid;
+    gap: 0;
+  }
+
+  .film-row {
+    display: grid;
+    grid-template-columns: 160px 1fr auto;
+    align-items: baseline;
+    gap: 0.5rem 2rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.15s;
+    cursor: default;
+  }
+
+  .film-row:first-child { border-top: 1px solid var(--rule); }
+
+  .film-row:hover { background: rgba(0,0,0,0.02); }
+
+  .film-type {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-top: 0.15rem;
+  }
+
+  .film-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .film-year {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    white-space: nowrap;
+  }
+
+  .film-client {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.88rem;
+    font-style: normal;
+    color: var(--mid);
+    margin-top: 0.1rem;
+  }
+
+  /* ── GEAR ────────────────────────────────────────────────────── */
+  .gear-section { background: transparent; }
+
+  .gear-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+
+  .gear-cat {
+    padding: 2.5rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .gear-cat:last-child { border-right: none; }
+
+  .gear-cat-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .gear-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .gear-item::before {
+    content: '—';
+    background: var(--rainbow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-top: 0.1rem;
+  }
+
+  .gear-item span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  .gear-note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    background: rgba(232,85,122,0.05);
+    border-left: 2px solid #cc5de8;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--mid);
+  }
+
+  /* ── SKILLS BAR ──────────────────────────────────────────────── */
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+  }
+
+  .skill-tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  .skill-tag:hover {
+    border-image: var(--rainbow) 1;
+    background: rgba(0,0,0,0.02);
+    background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* ── CTA ─────────────────────────────────────────────────────── */
+  .cta-strip {
+    background: #111111;
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+
+  .cta-strip h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  .cta-strip h2 em { font-style: italic; background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .cta-strip p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border: 1.5px solid transparent;
+    background-image: var(--rainbow), var(--rainbow);
+    background-origin: border-box, padding-box;
+    background-clip: border-box, padding-box;
+    color: #111;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn:hover {
+    background: var(--rainbow);
+    color: #fff;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────────────── */
+  footer {
+    padding: 2.5rem 3rem;
+    background: #111111;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+  }
+
+  footer a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { background: var(--rainbow); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  /* ── ANIMATIONS ──────────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.2); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .film-row { grid-template-columns: 1fr auto; }
+    .film-type { display: none; }
+    .gear-cols { grid-template-columns: 1fr; }
+    .gear-cat { border-right: none; border-bottom: 1px solid var(--rule); }
+    .gear-cat:last-child { border-bottom: none; }
+  }</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a href="https://www.danareilly.com" class="nav-logo">danareilly.com</a>
+  <div class="nav-links">
+    <a href="#films">Credits</a>
+    <a href="#gear">Gear</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+
+
+  <h1>Dana<br><em>Reilly</em></h1>
+  <p class="hero-sub">Sound Recordist &nbsp;·&nbsp; New York</p>
+  <div class="hero-divider"></div>
+  <div class="hero-contact">
+    <a href="mailto:danacreilly@gmail.com">danacreilly@gmail.com</a>
+    <a href="tel:3475609443">347.560.9443</a>
+    <a href="https://www.danareilly.com">danareilly.com</a>
+  </div>
+
+
+</header>
+
+<!-- FILM CREDITS -->
+<section id="films">
+  <p class="section-label reveal">Selected Credits</p>
+  <hr class="section-rule">
+
+  <div class="films-grid reveal">
+
+    <div class="film-row">
+      <div class="film-type">Doc Feature</div>
+      <div class="film-main">
+        <div class="film-title">Our Body Electric</div>
+        <div class="film-client">Mostly True Films LLC</div>
+      </div>
+      <div class="film-year">2026</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Branded</div>
+      <div class="film-main">
+        <div class="film-title">Ali Cherri</div>
+        <div class="film-client">Almine Rech Gallery — Dir. Oresti Tsonopoulos</div>
+      </div>
+      <div class="film-year">2026</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Feature in Dev</div>
+      <div class="film-main">
+        <div class="film-title">Untitled Philadelphia Maternal Health Documentary</div>
+        <div class="film-client">Mostly True Films LLC — Dir. Cristin Stephens</div>
+      </div>
+      <div class="film-year">2025</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Branded</div>
+      <div class="film-main">
+        <div class="film-title">Louise Bourgeois</div>
+        <div class="film-client">Hauser &amp; Wirth — Dir. Oresti Tsonopoulos</div>
+      </div>
+      <div class="film-year">2024</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Feature in Dev</div>
+      <div class="film-main">
+        <div class="film-title">Untitled Lesbian Avengers Documentary</div>
+        <div class="film-client">SidexSides Studios — Dir. Gabriel Silverman</div>
+      </div>
+      <div class="film-year">2023</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Feature in Prod</div>
+      <div class="film-main">
+        <div class="film-title">Untitled Ping Chong Documentary</div>
+        <div class="film-client">Ping Chong Documentary LLC — Dir. Melanie Vi Levy</div>
+      </div>
+      <div class="film-year">2023</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Doc Short</div>
+      <div class="film-main">
+        <div class="film-title">Yeah! Philly</div>
+        <div class="film-client">YEAH! PHILLY — Dir. Cristin Stephens</div>
+      </div>
+      <div class="film-year">2023</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Doc Feature</div>
+      <div class="film-main">
+        <div class="film-title">No Scope: The Story of FaZe Clan</div>
+        <div class="film-client">ESPN / Words + Pictures LLC</div>
+      </div>
+      <div class="film-year">2022</div>
+    </div>
+
+    <div class="film-row">
+      <div class="film-type">Doc Feature</div>
+      <div class="film-main">
+        <div class="film-title">Citizens at Last: Texas Women Fight for the Vote</div>
+        <div class="film-client">ET Films LLC / Mo-ti Productions / PBS</div>
+      </div>
+      <div class="film-year">2021</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GEAR -->
+<section id="gear" style="background: #f2f2f2; max-width: 100%; padding: 7rem 2rem;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p class="section-label reveal">Kit List</p>
+    <hr class="section-rule">
+
+    <div class="gear-cols reveal">
+
+      <div class="gear-cat">
+        <div class="gear-cat-title">Recording</div>
+        <div class="gear-item"><span>Sound Devices MixPre-3 — primary field recorder</span></div>
+        <div class="gear-item"><span>Sound Devices MixPre-10 — for larger setups</span></div>
+        <div class="gear-note">Up to 6-person ensemble available with MixPre-10 (additional gear fee applies)</div>
+      </div>
+
+      <div class="gear-cat">
+        <div class="gear-cat-title">Wireless &amp; Lavs</div>
+        <div class="gear-item"><span>Wisycom wireless microphone system</span></div>
+        <div class="gear-item"><span>Sanken COS-11D lavalier microphones</span></div>
+        <div class="gear-item"><span>Scratch audio hop to camera</span></div>
+      </div>
+
+      <div class="gear-cat">
+        <div class="gear-cat-title">Boom Microphones</div>
+        <div class="gear-item"><span>Sennheiser MKH 416 — outdoor / EXT environments</span></div>
+        <div class="gear-item"><span>Schoeps MK 41 condenser — interior / controlled environments</span></div>
+      </div>
+
+      <div class="gear-cat">
+        <div class="gear-cat-title">Sync &amp; Comms</div>
+        <div class="gear-item"><span>Tentacle Sync timecode system</span></div>
+        <div class="gear-item"><span>Hollyland Solidcom C1-8S system</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Expertise</p>
+  <hr class="section-rule">
+  <div class="skills-row reveal">
+    <span class="skill-tag">Production Sound</span>
+    <span class="skill-tag">Boom Operation</span>
+    <span class="skill-tag">Timecode Sync</span>
+    <span class="skill-tag">Run-and-Gun</span>
+    <span class="skill-tag">Multi-Channel Recording</span>
+    <span class="skill-tag">Documentary</span>
+    <span class="skill-tag">Branded Content</span>
+    <span class="skill-tag">Narrative Film</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip" id="contact">
+  <h2>Let's <em>work together</em></h2>
+  <p>Available for documentary, narrative, and branded productions in New York.</p>
+  <a class="btn" href="mailto:danacreilly@gmail.com">Get in Touch</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Dana Reilly</span>
+  <a href="https://www.danareilly.com">danareilly.com</a>
+  <a href="tel:3475609443">347.560.9443</a>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
